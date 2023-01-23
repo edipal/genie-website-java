@@ -50,5 +50,5 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Coverage
-        run: mvn sonar:sonar -Pcoverage --file pom.xml -Dsonar.projectKey=edipal_genie-website-java -Dsonar.organization=edipal -DSONAR_TOKEN=${{ secrets.SONAR_TOKEN }}
+      - name: Sonar with coverage
+        run: mvn sonar:sonar -Pcoverage --file pom.xml -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_genie-website-java -Dsonar.organization=edipal
