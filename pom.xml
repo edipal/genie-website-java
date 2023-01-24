@@ -15,9 +15,9 @@
 	<description>Demo project for Spring Boot</description>
 	<distributionManagement>
 	    <repository>
-		<id>central</id>
-		<name>a0erwq674qhqo-artifactory-primary-1-releases</name>
-		<url>https://edipal.jfrog.io/artifactory/default-libs-release</url>
+	      <id>github</id>
+	      <name>GitHub Packages</name>
+	      <url>https://maven.pkg.github.com/octocat/hello-world</url>
 	    </repository>
 	</distributionManagement>
 	<properties>
