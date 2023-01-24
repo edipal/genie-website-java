@@ -8,6 +8,8 @@ on:
 
 permissions:
   pull-requests: read # allows SonarCloud to decorate PRs with analysis results
+  contents: read
+  packages: write
 
 jobs:
   build:
@@ -24,8 +26,10 @@ jobs:
     - name: Test & Sonar & Coverage
       run: mvn clean verify sonar:sonar -Pcoverage --file pom.xml -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_genie-website-java -Dsonar.organization=edipal
     - name: Package & Deploy
-      run: mvn -B package -DskipTests=true --file pom.xml
-
+      run: mvn --batch-mode deploy -DskipTests=true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v2.0.1
