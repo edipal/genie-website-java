@@ -13,6 +13,13 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>webapp</name>
 	<description>Demo project for Spring Boot</description>
+	<distributionManagement>
+	    <repository>
+		<id>central</id>
+		<name>a0erwq674qhqo-artifactory-primary-1-releases</name>
+		<url>https://edipal.jfrog.io/artifactory/default-libs-release</url>
+	    </repository>
+	</distributionManagement>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
