@@ -26,3 +26,5 @@ jobs:
         cache: maven
     - name: Release
       run: mvn -B release:prepare release:perform
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
