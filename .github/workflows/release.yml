@@ -13,8 +13,8 @@ jobs:
         key: ${{ secrets.GH_SSH_KEY }}
         name: id_ed25519
         known_hosts: ${{ secrets.GH_KNOWN_HOSTS }}
-    - run: |
-        ssh -vT git@github.com
+    # - run: |
+    #     ssh -vT git@github.com
     - run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
