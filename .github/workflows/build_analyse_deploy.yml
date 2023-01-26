@@ -13,21 +13,23 @@ jobs:
     
     steps:
     - uses: actions/checkout@v3
+
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
     - name: Test & Sonar & Coverage
-      run: mvn --batch-mode clean verify sonar:sonar -Pcoverage --file pom.xml -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_genie-website-java -Dsonar.organization=edipal
+      run: mvn -B clean verify sonar:sonar -Pcoverage --file pom.xml -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_genie-website-java -Dsonar.organization=edipal
+
     - name: Package & Deploy
-      run: mvn --batch-mode clean deploy -DskipTests=true
+      run: mvn -B clean deploy -DskipTests=true
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
+        GITHUB_TOKEN: ${{ github.token }}
+
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v2.0.1
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ github.token }}
