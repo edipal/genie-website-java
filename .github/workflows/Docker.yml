@@ -15,18 +15,13 @@ jobs:
       run: |
         echo $EVENT_CONTEXT
     - uses: actions/checkout@v3
-    - name: "call action"
-      id: last_release
-      uses: InsonusK/get-latest-release@v1.0.1
-      with:
-        myToken: ${{ github.token }}
-        exclude_types: "release"
-        view_top: 1
+    - name: 'Get Previous tag'
+      id: previoustag
+      uses: "WyriHaximus/github-action-get-previous-tag@v1"
     - env:
-        LAST_RELEASE_DATA: ${{ toJSON(steps.last_release) }}
+        LAST_TAG: ${{ steps.previoustag.outputs.tag }}
       run: |
-        echo $LAST_RELEASE_DATA
-    
+        echo $LAST_TAG    
     
     
     - name: Build the Docker image
