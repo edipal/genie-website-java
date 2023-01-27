@@ -35,6 +35,8 @@ jobs:
     - name: 'Download last released jar'
       run: |
         mvn -B dependency:copy -Dartifact=com.example:webapp:${{ env.LAST_TAG }} -DoutputDirectory=target
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ghcr.io/edipal/genie-website-java:${{ env.LAST_TAG }} --build-arg APP_VERSION=${{ env.LAST_TAG }}
     - name: Login to GitHub Container Registry
