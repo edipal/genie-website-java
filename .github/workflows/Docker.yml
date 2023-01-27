@@ -15,5 +15,19 @@ jobs:
       run: |
         echo $EVENT_CONTEXT
     - uses: actions/checkout@v3
+    - name: "call action"
+      id: last_release
+      uses: InsonusK/get-latest-release@v1.0.1
+      with:
+        myToken: ${{ github.token }}
+        exclude_types: "release"
+        view_top: 1
+    - env:
+        LAST_RELEASE_DATA: ${{ toJSON(steps.last_release) }}
+      run: |
+        echo $LAST_RELEASE_DATA
+    
+    
+    
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag genie-website-java:$(date +%s)
