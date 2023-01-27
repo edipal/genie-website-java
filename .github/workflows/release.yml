@@ -25,6 +25,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Release
-      run: mvn -B release:prepare release:perform
+      run: mvn -B release:prepare release:perform -DtagNameFormat=@{project.version}
       env:
         GITHUB_TOKEN: ${{ github.token }}
