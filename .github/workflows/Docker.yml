@@ -37,7 +37,7 @@ jobs:
         cache: maven
     - name: 'Download last released jar'
       run: |
-        mvn dependency:copy -Dartifact=com.example:webapp:$LAST_TAG -DoutputDirectory=target -DrepositoryId=github
+        mvn -B dependency:copy -Dartifact=com.example:webapp:$LAST_TAG -DoutputDirectory=target -DrepositoryId=github
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ghcr.io/edipal/genie-website-java:$LAST_TAG --build-arg APP_VERSION=$LAST_TAG
     - name: Login to GitHub Container Registry
