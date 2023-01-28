@@ -6,6 +6,8 @@
 - Spring Tool Suite for Eclipse
 - Docker Desktop
 
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffossas%2Ffossa-cli-orb.svg?type=large)](https://app.fossa.com/projects/custom%2b35674%2fgithub.com%2fedipal%2fgenie-website-java?ref=badge_large)
 
 ## Getting Started
 
