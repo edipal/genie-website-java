@@ -34,6 +34,8 @@ jobs:
 
     - name: 'FOSSA Action'
       uses: fossas/fossa-action@v1.3.1
+      with:
+        api-key: ${{secrets.FOSSA_KEY}}
 
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v2.0.1
@@ -63,6 +65,8 @@ jobs:
         
     - name: 'FOSSA Action'
       uses: fossas/fossa-action@v1.3.1
+      with:
+        api-key: ${{secrets.FOSSA_KEY}}
 
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v2.0.1
