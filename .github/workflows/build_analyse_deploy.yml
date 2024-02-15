@@ -13,12 +13,12 @@ jobs:
     steps:
     
     - name: 'Checkout'
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4.1.1
       with:
         fetch-depth: 0  
 
     - name: 'Set up JDK 17'
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4.0.0
       with:
         java-version: '17'
         distribution: 'temurin'
@@ -33,12 +33,12 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
 
     - name: 'FOSSA Action'
-      uses: fossas/fossa-action@v1.3.1
+      uses: fossas/fossa-action@v1.3.2
       with:
         api-key: ${{secrets.FOSSA_KEY}}
 
     - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v2.0.1
+      uses: advanced-security/maven-dependency-submission-action@v4.0.0
       with:
         token: ${{ github.token }}
   dependabot-build:
@@ -47,12 +47,12 @@ jobs:
     steps:
     
     - name: 'Checkout'
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4.1.1
       with:
         fetch-depth: 0  
 
     - name: 'Set up JDK 17'
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4.0.0
       with:
         java-version: '17'
         distribution: 'temurin'
@@ -64,11 +64,11 @@ jobs:
         GITHUB_TOKEN: ${{ github.token }}
         
     - name: 'FOSSA Action'
-      uses: fossas/fossa-action@v1.3.1
+      uses: fossas/fossa-action@v1.3.2
       with:
         api-key: ${{secrets.FOSSA_KEY}}
 
     - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v2.0.1
+      uses: advanced-security/maven-dependency-submission-action@v4.0.0
       with:
         token: ${{ github.token }}
