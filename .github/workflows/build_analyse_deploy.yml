@@ -41,6 +41,7 @@ jobs:
       uses: advanced-security/maven-dependency-submission-action@v3
       with:
         token: ${{ github.token }}
+        ignore-maven-wrapper: true
   dependabot-build:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, '[ci skip]') && github.actor == 'dependabot[bot]'"
@@ -72,3 +73,4 @@ jobs:
       uses: advanced-security/maven-dependency-submission-action@v3
       with:
         token: ${{ github.token }}
+        ignore-maven-wrapper: true
