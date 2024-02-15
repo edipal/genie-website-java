@@ -25,7 +25,7 @@ jobs:
         cache: maven
 
     - name: Test & Sonar & Coverage
-      run: mvn -B clean verify sonar:sonar -Pcoverage --file pom.xml -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_github-actions-test -Dsonar.organization=edipal
+      run: mvn -B clean verify sonar:sonar -Pcoverage --file pom.xml -Dsonar.token=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_github-actions-test -Dsonar.organization=edipal
 
     - name: Package & Deploy
       run: mvn -B clean deploy -DskipTests=true
@@ -38,7 +38,7 @@ jobs:
         api-key: ${{secrets.FOSSA_KEY}}
 
     - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v4.0.0
+      uses: advanced-security/maven-dependency-submission-action@v3
       with:
         token: ${{ github.token }}
   dependabot-build:
@@ -69,6 +69,6 @@ jobs:
         api-key: ${{secrets.FOSSA_KEY}}
 
     - name: Update dependency graph
-      uses: advanced-security/maven-dependency-submission-action@v4.0.0
+      uses: advanced-security/maven-dependency-submission-action@v3
       with:
         token: ${{ github.token }}
