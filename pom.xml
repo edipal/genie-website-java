@@ -17,7 +17,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/edipal/genie-website-java</url>
+            <url>https://maven.pkg.github.com/edipal/github-actions-test</url>
         </repository>
     </distributionManagement>
 
@@ -25,7 +25,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/edipal/genie-website-java</url>
+            <url>https://maven.pkg.github.com/edipal/github-actions-test</url>
             <releases><enabled>true</enabled></releases>
             <snapshots><enabled>true</enabled></snapshots>
         </repository>
@@ -34,7 +34,7 @@
     <scm>
         <connection>scm:git:${project.scm.url}</connection>
         <developerConnection>scm:git:${project.scm.url}</developerConnection>
-        <url>git@github.com:edipal/genie-website-java.git</url>
+        <url>git@github.com:edipal/github-actions-test.git</url>
         <tag>HEAD</tag>
     </scm>
 
