@@ -25,7 +25,7 @@ jobs:
         cache: maven
 
     - name: Test & Sonar & Coverage
-      run: mvn -B clean verify sonar:sonar -Pcoverage --file pom.xml -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_genie-website-java -Dsonar.organization=edipal
+      run: mvn -B clean verify sonar:sonar -Pcoverage --file pom.xml -Dsonar.login=${{ secrets.SONAR_TOKEN }} -Dsonar.host.url=https://sonarcloud.io -Dsonar.projectKey=edipal_github-actions-test -Dsonar.organization=edipal
 
     - name: Package & Deploy
       run: mvn -B clean deploy -DskipTests=true
